@@ -1,0 +1,49 @@
+Common gcloud commands:
+
+=> To init configuration
+gcloud init
+
+=> https://cloud.google.com/sdk/gcloud/reference/init
+
+
+=> List all configuration:
+gcloud config configurations list
+
+=> https://cloud.google.com/sdk/gcloud/reference/config
+
+=> To delete one configuration
+gcloud config configurations delete default
+
+https://cloud.google.com/sdk/gcloud/reference/container/clusters
+
+
+=> List clusters
+
+gcloud container clusters list
+
+=> To create a cluster
+gcloud container clusters create test-cluster --num-nodes=1 --zone=us-central1-c
+
+=> View a cluster
+gcloud container clusters describe
+
+eg: gcloud container clusters describe test-cluster --zone=us-central1-c
+
+=> List all node pools
+gcloud container node-pools list
+
+eg: gcloud container node-pools list --cluster=test-cluster --zone=us-central1-c
+
+=> To resize a cluster
+gcloud container clusters resize
+
+eg: gcloud container clusters resize test-cluster --node-pool=default-pool --num-nodes=1 --zone=us-central1-c
+
+=> Get credentials before start working
+
+gcloud container clusters get-credentials test-cluster --zone=us-central1-c
+
+
+
+kubectl expose deployment aspnetcoresite --type="LoadBalancer"
+

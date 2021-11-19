@@ -1,0 +1,9 @@
+=> To build the image
+
+docker build . -t mydockeruniviersity/aspnetcore-site-v1.0
+
+=> To tag an existing image
+
+docker tag 272e83ef3462 gcr.io/daring-avenue-332309/hello-dotnet:v1
+
+
