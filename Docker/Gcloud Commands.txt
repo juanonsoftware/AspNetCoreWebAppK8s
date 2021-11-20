@@ -1,49 +1,66 @@
-Common gcloud commands:
+Below are common gcloud commands:
 
-=> To init configuration
+1. To init configuration
 gcloud init
 
-=> https://cloud.google.com/sdk/gcloud/reference/init
+https://cloud.google.com/sdk/gcloud/reference/init
 
 
-=> List all configuration:
+2. List all configuration:
+gcloud config list
 gcloud config configurations list
 
-=> https://cloud.google.com/sdk/gcloud/reference/config
+https://cloud.google.com/sdk/gcloud/reference/config
 
-=> To delete one configuration
+* To delete one configuration
 gcloud config configurations delete default
 
 https://cloud.google.com/sdk/gcloud/reference/container/clusters
 
 
-=> List clusters
+3. List all services
+gcloud services list
 
+https://cloud.google.com/sdk/gcloud/reference/services
+
+* To enable compute, run below command:
+gcloud services enable compute.googleapis.com
+gcloud services enable container.googleapis.com
+
+4. List clusters
 gcloud container clusters list
 
-=> To create a cluster
+* To create a cluster
 gcloud container clusters create test-cluster --num-nodes=1 --zone=us-central1-c
 
-=> View a cluster
+* View a cluster
 gcloud container clusters describe
 
 eg: gcloud container clusters describe test-cluster --zone=us-central1-c
 
-=> List all node pools
+5. List all node pools
 gcloud container node-pools list
 
 eg: gcloud container node-pools list --cluster=test-cluster --zone=us-central1-c
 
-=> To resize a cluster
+6. To resize a cluster
 gcloud container clusters resize
 
 eg: gcloud container clusters resize test-cluster --node-pool=default-pool --num-nodes=1 --zone=us-central1-c
 
-=> Get credentials before start working
+* Get credentials before start working
 
 gcloud container clusters get-credentials test-cluster --zone=us-central1-c
 
+7. Apply an yaml file to create a deployment
+kubectl apply -f aspnetcore-site.yaml
 
+8. Get deployments & services
+kubectl get deployments
+kubectl get services
 
+9. Expose the service to external access
 kubectl expose deployment aspnetcoresite --type="LoadBalancer"
 
+10. Resize nood-pool to 0, to shutdown the VM hosting all containers
+gcloud container clusters resize test-cluster --node-pool=default-pool --num-nodes=0 --zone=us-central1-c
