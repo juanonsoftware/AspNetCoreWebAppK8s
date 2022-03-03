@@ -8,6 +8,7 @@ namespace AspNetCoreWebAppK8s.Pages
         public void OnGet()
         {
             ViewData["MachineName"] = Environment.MachineName;
+            ViewData["DatabaseKey"] = "N/A";
         }
     }
 }
